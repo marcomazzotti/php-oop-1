@@ -1,33 +1,29 @@
 <?php
 
-// Oggetto
-class Movie
-{
-  public $title;
-  public $year;
-  public $genre;
+require __DIR__ . "/data.php";
 
-  // Construct
-  public function __construct($_title, $_year, $_genre)
-  {
-    $this->title = $_title;
-    $this->genre = $_genre;
-    $this->year = $_year;
-  }
+?>
 
-  //Metodo
-  public function printInfo()
-  {
-    $genre = implode(", ", $this->genre);
-    return "Titolo: {$this->title};<br>
-            Anno: {$this->year};<br>
-            Genere: {$genre};<br>";
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
 
-$first_movie = new Movie("Avatar", "2009", ["fantascienza", "azione", "avventura"]);
-$second_movie = new Movie("Avatar - La via dell'acqua", "2022", ["fantascienza", "azione", "avventura"]);
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+  <title>Film</title>
+</head>
 
-echo ($first_movie->printInfo());
-echo ("<br>");
-echo ($second_movie->printInfo());
+<body>
+  <div class="container text-center">
+    <h1>Film</h1>
+    <?php foreach ($movies as $movie) { ?>
+      <div class="movie my-4 text-start">
+        <?php echo ($movie->printInfo()) ?>
+      </div>
+    <?php } ?>
+  </div>
+</body>
+
+</html>

@@ -18,14 +18,16 @@ class Movie
   //Metodo
   public function printInfo()
   {
+    $genre = implode(", ", $this->genre);
     return "Titolo: {$this->title};<br>
             Anno: {$this->year};<br>
-            Genere: {$this->genre};<br>";
+            Genere: {$genre};<br>";
   }
 }
 
-$first_movie = new Movie("Avatar", "2009", "fantascienza");
-$second_movie = new Movie("Avatar - La via dell'acqua", "2022", "fantascienza");
+$first_movie = new Movie("Avatar", "2009", ["fantascienza", "azione", "avventura"]);
+$second_movie = new Movie("Avatar - La via dell'acqua", "2022", ["fantascienza", "azione", "avventura"]);
 
 echo ($first_movie->printInfo());
+echo ("<br>");
 echo ($second_movie->printInfo());
